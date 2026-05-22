@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Paleta Lilás / Roxa */
+  --bg-principal: #f6f5fa;
+  --texto-escuro: #2d263b;
+  --texto-suave: #6e657e;
+  --cor-primaria: #7c4dff;
+  --cor-primaria-hover: #6536ec;
+  --cor-secundaria: #b3a2ce;
+  --cor-secundaria-hover: #9c8bb7;
+  --cor-tabela-header: #f0ecf9;
+  --cor-tabela-hover: #f7f5fc;
+  --borda: #e1daf2;
+}
+
+body {
+  margin: 0;
+  padding: 0 16px 32px;
+  background: var(--bg-principal);
+  color: var(--texto-escuro);
+}
+
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.login-panel {
+  max-width: 480px;
+  margin: 40px auto; /* Um pouco mais de espaço no login */
+}
+
+header {
+  max-width: 980px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  /* Efeito de degradê moderno no título principal */
+  background: linear-gradient(135deg, #7c4dff, #4a148c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+}
+
+main {
+  max-width: 980px;
+  margin: 24px auto;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 16px; /* Bordas ligeiramente mais arredondadas e modernas */
+  padding: 24px;
+  /* Sombra mais suave e levemente arroxeada */
+  box-shadow: 0 10px 25px rgba(124, 77, 255, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+  margin-bottom: 24px;
+  border: 1px solid rgba(225, 218, 242, 0.5);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #4a148c;
+  font-weight: 600;
+}
+
+.form-row {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.form-row label {
+  font-weight: 600;
+  color: var(--texto-escuro);
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid var(--borda); /* Borda um pouco mais espessa para parecer um app moderno */
+  font-size: 1rem;
+  background-color: #faf9fe;
+  color: var(--texto-escuro);
+  transition: all 0.2s ease;
+}
+
+/* Efeito de foco lindo no lilás */
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(124, 77, 255, 0.15);
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--cor-primaria);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(124, 77, 255, 0.2);
+}
+
+button.secondary {
+  background: var(--cor-secundaria);
+  color: #4a148c;
+  box-shadow: none;
+}
+
+button:not(:last-child) {
+  margin-right: 8px;
+}
+
+button:hover {
+  background: var(--cor-primaria-hover);
+  transform: translateY(-1px); /* Sutil efeito de levantar ao passar o mouse */
+  box-shadow: 0 6px 16px rgba(124, 77, 255, 0.3);
+}
+
+button.secondary:hover {
+  background: var(--cor-secundaria-hover);
+  color: #4a148c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(179, 162, 206, 0.2);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate; /* Permite arredondar as bordas da tabela */
+  border-spacing: 0;
+  margin-top: 8px;
+}
+
+thead {
+  background: var(--cor-tabela-header);
+}
+
+/* Arredondando os cantos superiores da tabela */
+tr:first-child th:first-child { border-top-left-radius: 10px; }
+tr:first-child th:last-child { border-top-right-radius: 10px; }
+
+th {
+  padding: 14px 16px;
+  text-align: left;
+  color: #4a148c;
+  font-weight: 600;
+}
+
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--borda);
+  color: var(--texto-escuro);
+}
+
+tr:last-child td {
+  border-bottom: none; /* Remove a borda da última linha para não quebrar o visual */
+}
+
+tr:hover {
+  background: var(--cor-tabela-hover);
+}
+
+.message {
+  margin-bottom: 16px;
+  color: var(--cor-primaria);
+  font-weight: 600;
+  padding: 10px 14px;
+  background-color: #f0ecf9;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+@media (min-width: 700px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .button-row {
+    display: flex;
+    gap: 10px;
+  }
+}
